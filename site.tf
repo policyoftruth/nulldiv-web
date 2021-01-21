@@ -7,3 +7,10 @@ resource "aws_s3_bucket" "website_bucket" {
     error_document = "index.html"
   }
 }
+
+resource "aws_s3_bucket_object" "website_files" {
+  bucket = var.domain_name
+  key    = "index.html"
+  source = "index.html"
+  acl = "public-read"
+}
