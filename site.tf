@@ -13,4 +13,5 @@ resource "aws_s3_bucket_object" "website_files" {
   key    = "index.html"
   source = "index.html"
   acl = "public-read"
+  content_type = "text/html"
 }
