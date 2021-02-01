@@ -14,6 +14,7 @@ resource "aws_s3_bucket_object" "www_files" {
   source       = "index.html"
   acl          = "public-read"
   content_type = "text/html"
+  etag         = filemd5("index.html")
   depends_on = [
     aws_s3_bucket.www_bucket,
   ]
