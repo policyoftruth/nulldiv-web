@@ -1,6 +1,6 @@
 resource "aws_s3_bucket" "www_bucket" {
   bucket = var.domain_name
-  acl    = "public-read"
+  acl    = "private"
   policy = data.aws_iam_policy_document.www_policy.json
   website {
     index_document = "index.html"
@@ -12,7 +12,7 @@ resource "aws_s3_bucket_object" "www_files" {
   bucket       = var.domain_name
   key          = "index.html"
   source       = "index.html"
-  acl          = "public-read"
+  acl          = "private"
   content_type = "text/html"
   etag         = filemd5("index.html")
   depends_on = [
