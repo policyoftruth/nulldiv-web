@@ -1,3 +1,5 @@
+#!/bin/bash
+
 aws route53domains update-domain-nameservers \
     --region us-east-1 \
     --domain-name example.com \
