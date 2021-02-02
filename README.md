@@ -1,3 +1,5 @@
+# static ssl web w/tf and gh actions on aws
+
 ## **manual steps**
 1. create route53 domain name
     * don't create default DNS zone

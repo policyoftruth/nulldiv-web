@@ -20,3 +20,19 @@ data "aws_iam_policy_document" "www_policy" {
     }
   }
 }
+
+data "aws_iam_policy_document" "dns_query_log_policy" {
+  statement {
+    actions = [
+      "logs:CreateLogStream",
+      "logs:PutLogEvents",
+    ]
+
+    resources = ["arn:aws:logs:*:*:log-group:/aws/route53/*"]
+
+    principals {
+      identifiers = ["route53.amazonaws.com"]
+      type        = "Service"
+    }
+  }
+}

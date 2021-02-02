@@ -30,6 +30,13 @@ resource "aws_route53_record" "dvo" {
   zone_id         = aws_route53_zone.myzone.zone_id
 }
 
+resource "aws_route53_query_log" "dns_log_query" {
+  depends_on = [aws_cloudwatch_log_resource_policy.dns_log_policy]
+
+  cloudwatch_log_group_arn = aws_cloudwatch_log_group.dns_log_group.arn
+  zone_id                  = aws_route53_zone.myzone.zone_id
+}
+
 output "my_name_servers" {
   value = aws_route53_zone.myzone.name_servers
 }
